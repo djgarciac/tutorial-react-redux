@@ -6,3 +6,14 @@ export const addArticle = (payload) => {
     payload
   };
 };
+
+export const getData = () => {
+  return async (dispatch) => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const json = await response.json();
+    return dispatch({
+      type: 'DATA_LOADED',
+      payload: json
+    });
+  }
+};
