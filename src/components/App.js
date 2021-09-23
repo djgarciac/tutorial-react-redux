@@ -1,12 +1,19 @@
 import './App.css';
 import List from './List';
+import Form from './Form';
 
 const App = () => {
   return (
     <div className="App">
-      <h2>Articles</h2>
+      <div>
+        <h2>Articles</h2>
 
-      <List />
+        <List />
+      </div>
+      <div>
+        <h2>Add a new article</h2>
+        <Form />
+      </div>
     </div>
   );
 }
