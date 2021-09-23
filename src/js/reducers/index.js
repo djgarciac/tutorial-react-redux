@@ -7,7 +7,7 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   if (action.type === ADD_ARTICLE) {
     return {
-      articles: [...action.payload]
+      articles: [...state.articles, action.payload]
     };
   }
 
