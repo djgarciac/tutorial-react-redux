@@ -1,6 +1,10 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { forbiddenWordsMiddleware } from '../middleware';
 import rootReducer from '../reducers/index';
 
-const store = createStore(rootReducer);
+const store = createStore(
+  rootReducer,
+  applyMiddleware(forbiddenWordsMiddleware)
+);
 
 export default store;
