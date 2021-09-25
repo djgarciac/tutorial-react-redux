@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, DATA_LOADED } from '../constants/action-types';
+import { ADD_ARTICLE, API_ERRORED, DATA_LOADED } from '../constants/action-types';
 
 const initialState = {
   articles: [],
@@ -20,6 +20,13 @@ const rootReducer = (state = initialState, action) => {
         ...state.remoteArticles,
         ...action.payload
       ]
+    };
+  }
+
+  if (action.type === API_ERRORED) {
+    return {
+      ...state,
+      remoteArticles: []
     };
   }
 
