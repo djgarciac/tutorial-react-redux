@@ -7,8 +7,9 @@ export const addArticle = (payload) => {
   };
 };
 
-export const getData = () => {
+export const getData = (url) => {
   return {
-    type: DATA_REQUESTED
+    type: DATA_REQUESTED,
+    payload: { url }
   };
 };

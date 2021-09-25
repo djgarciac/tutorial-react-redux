@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const Post = ({ articles, getData }) => {
   useEffect(() => {
-    getData();
+    getData('https://jsonplaceholder.typicode.com/posts');
   }, [getData]);
 
   return (

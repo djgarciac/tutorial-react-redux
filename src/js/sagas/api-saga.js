@@ -5,18 +5,18 @@ const watcherSaga = function* () {
   yield takeEvery(DATA_REQUESTED, workerSaga);
 };
 
-const workerSaga = function* () {
+const workerSaga = function* (action) {
   try {
-    const payload = yield call(getData);
+    const payload = yield call(getData, action.payload.url);
     yield put({ type: DATA_LOADED, payload });
   } catch (e) {
     yield put({ type: API_ERRORED, payload: e });
   }
 };
 
-const getData = async () => {
+const getData = async (url) => {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const response = await fetch(url);
     return response.json();
   } catch (e) {
     throw new Error('Error al consumir');
